@@ -1,0 +1,4 @@
+*.csv
+*.lock
+*.~lock
+test*
