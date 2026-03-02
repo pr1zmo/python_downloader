@@ -2,3 +2,5 @@
 *.lock
 *.~lock
 test*
+## Plan: Fuse Audio Pipeline into main.prompt.md
+.gitignore
