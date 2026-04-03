@@ -2,5 +2,10 @@
 *.lock
 *.~lock
 test*
-## Plan: Fuse Audio Pipeline into main.prompt.md
-.gitignore
+songs/
+
+# Redundant scripts (merged into main.py)
+compress.py
+flac_to_opus.py
+check_flac_converted.py
+songDownload.py
