@@ -69,7 +69,7 @@ def build_ydl_opts(out_dir: str):
 def main():
 	ap = argparse.ArgumentParser(description="Lookup songs on YouTube and download as MP3.")
 	ap.add_argument("csv", help="Input CSV (Spotify export or title,artist)")
-	ap.add_argument("-o", "--out-dir", default=None, help="Output directory for MP3 files")
+	ap.add_argument("-o", "--out-dir", required=True, help="Output directory for MP3 files")
 	args = ap.parse_args()
 
 	csv_path = os.path.abspath(args.csv)
@@ -78,7 +78,7 @@ def main():
 		sys.exit(1)
 
 	base = os.path.splitext(os.path.basename(csv_path))[0]
-	out_dir = os.path.abspath(args.out_dir or f"/goinfre/zelbassa/{base}_mp3")
+	out_dir = os.path.abspath(args.out_dir)
 	ensure_dir(out_dir)
 
 	rows = parse_csv(csv_path)

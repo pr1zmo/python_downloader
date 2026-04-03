@@ -31,15 +31,11 @@ def main():
 	)
 	parser.add_argument(
 		"flac_dir",
-		nargs="?",
-		default="/goinfre/zelbassa/spotiFLAC",
-		help="Directory containing .flac files (default: /goinfre/zelbassa/spotiFLAC)",
+		help="Directory containing .flac files",
 	)
 	parser.add_argument(
 		"opus_dir",
-		nargs="?",
-		default="/goinfre/zelbassa/spotiFLAC_opus",
-		help="Directory containing .opus files (default: /goinfre/zelbassa/spotiFLAC_opus)",
+		help="Directory containing .opus files",
 	)
 	parser.add_argument(
 		"--delete",

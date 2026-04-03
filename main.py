@@ -166,7 +166,7 @@ def _extract_cover_art(filepath):
 	if not HAS_MUTAGEN:
 		print("  ⚠ Mutagen not available – cannot extract cover art.")
 		print("Run this script in a Python environment with mutagen installed to enable cover art transfer.")
-		print("python3 -m venv /goinfre/zelbassa/p_scripts && /goinfre/zelbassa/p_scripts/bin/pip install mutagen")
+		print("python3 -m venv venv && venv/bin/pip install mutagen")
 		print("pip3 install -r requirements.txt")
 		return []
 
@@ -683,9 +683,7 @@ def main():
 	)
 	parser.add_argument(
 		"input_dir",
-		nargs="?",
-		default="/goinfre/zelbassa/spotiFLAC",
-		help="Directory containing audio files (default: /goinfre/zelbassa/spotiFLAC)",
+		help="Directory containing audio files",
 	)
 	parser.add_argument(
 		"-b", "--bitrate",

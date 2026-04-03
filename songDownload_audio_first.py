@@ -176,7 +176,7 @@ def choose_best(info, title: str, artist: str):
 def main():
 	ap = argparse.ArgumentParser(description="Lookup songs on YouTube and download as MP3 (audio-first).")
 	ap.add_argument("csv", help="Input CSV (Spotify export or title,artist)")
-	ap.add_argument("-o", "--out-dir", default=None, help="Output directory for MP3 files")
+	ap.add_argument("-o", "--out-dir", required=True, help="Output directory for MP3 files")
 	ap.add_argument("--search-count", type=int, default=15, help="How many YouTube results to scan per song (default: 15)")
 	ap.add_argument("-t", "--sleep-interval", type=int, default=0, help="Sleep interval (seconds) between downloads to avoid rate limiting (default: 0)")
 	args = ap.parse_args()
@@ -186,7 +186,7 @@ def main():
 	
 
 	if inp.startswith(("http://", "https://")):
-		out_dir = os.path.abspath(args.out_dir or "/goinfre/zelbassa/spotify/ytlink.mp3")
+		out_dir = os.path.abspath(args.out_dir)
 		ensure_dir(out_dir)
 
 		ydl_opts = build_ydl_opts(out_dir, search_count=max(5, min(args.search_count, 50)), sleep_interval=args.sleep_interval)
@@ -203,7 +203,7 @@ def main():
 		sys.exit(1)
 
 	base = os.path.splitext(os.path.basename(csv_path))[0]
-	out_dir = os.path.abspath(args.out_dir or f"/goinfre/zelbassa/spotify/{base}.mp3")
+	out_dir = os.path.abspath(args.out_dir)
 	ensure_dir(out_dir)
 
 	rows = parse_csv(csv_path)

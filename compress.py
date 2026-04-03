@@ -338,9 +338,7 @@ def main():
     )
     parser.add_argument(
         "input_dir",
-        nargs="?",
-        default="/goinfre/zelbassa/spotiFLAC",
-        help="Directory containing audio files (default: /goinfre/zelbassa/spotiFLAC)",
+        help="Directory containing audio files",
     )
     parser.add_argument(
         "-o", "--output",
